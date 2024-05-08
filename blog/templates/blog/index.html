@@ -26,12 +26,8 @@ This is My blog!
         <h1>Latest Posts</h1>
         
         <ul>
-            {% for object in latest_post %}
-                <h1>{{ object.title }}</h1>
+            {% for post in latest_post %}
                 {% include "blog/includes/post.html" %}
-                <h1>{{ object.date }}</h1>
-
-
             {% endfor%}
        
         </ul>

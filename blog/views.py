@@ -44,10 +44,8 @@ all_posts =[
 ]
 
 
-def get_date(a):
-    # print(a)
-    # print(a['date'])
-    return a['date']
+def get_date(post):
+    return post['date']
 
 
 def index(request):
@@ -58,7 +56,10 @@ def index(request):
     })
 
 def posts(request):
-    return render(request , 'blog/all-posts.html' )
+    context = {
+        'all_posts': all_posts
+    }
+    return render(request , 'blog/all-posts.html' ,context )
 
 def single_post(request , slug):
     return render(request , 'blog/post-detail.html')
