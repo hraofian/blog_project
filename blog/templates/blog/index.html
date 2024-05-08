@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header_refrence %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock  %}
+
+{% block title %}
+This is My blog!
+{% endblock  %}
+
+{% block content %} 
+
+
+
+    <section id="wellcome">
+        <header>
+            <img src="{% static "blog/images/01.png"%}" alt="Toplearn - Author of this page">
+            <h2>Toplearn Blog Project</h2>
+        </header>
+        <p>Hi i am mohamad the teacher of Toplearn</p>
+    </section>
+
+    <section id="latest-post">
+        
+        <h1>Latest Posts</h1>
+        
+        <ul>
+            {% for object in latest_post %}
+                <h1>{{ object.title }}</h1>
+                {% include "blog/includes/post.html" %}
+                <h1>{{ object.date }}</h1>
+                <h1>{{ object.slug }}</h1>
+
+            {% endfor%}
+       
+        </ul>
+        
+    
+    </section>
+    <section id="about">
+        <p> about me and learning django</p>
+    </section>
+
+{% endblock  %}
+
