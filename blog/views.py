@@ -55,6 +55,7 @@ def index(request):
         'latest_post': latest_post
     })
 
+
 def posts(request):
     context = {
         'all_posts': all_posts
@@ -62,7 +63,10 @@ def posts(request):
     return render(request , 'blog/all-posts.html' ,context )
 
 def single_post(request , slug):
-    return render(request , 'blog/post-detail.html')
+    post=next(post for post in all_posts if post['slug']== slug)
+    return render(request , 'blog/post-detail.html', {
+        'post': post
+    })
 
 
 
